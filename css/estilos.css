@@ -1,12 +1,3 @@
-/* ------------------------- */
-/* Generador de Contraseñas */
-/* Creado por: Carlos Arturo Esparza */
-/* Para: http://www.falconmasters.com */
-/* ------------------------- */
-
-/* ------------------------- */
-/* Estilos Generales */
-/* ------------------------- */
 * {
 	box-sizing: border-box;
 	padding: 0;
@@ -26,7 +17,7 @@
 }
 
 body {
-	background: #212139;
+	background: #282424;
 	color: #fff;
 }
 
@@ -46,23 +37,8 @@ a:hover {
 }
 
 
-/* ------------------------- */
-/* Logotipo */
-/* ------------------------- */
-.logo { 
-	margin-bottom: 40px;
-	width: 100%;
-	text-align: center;
-}
+/* Filas y Columnas */
 
-.logo img { 
-	width: 100%;
-	vertical-align: top;
- }
-
-/* ------------------------- */
-/* Estilos de Filas y Columnas */
-/* ------------------------- */
 .app .fila {
 	margin-bottom: 40px;
 	display: flex;
@@ -74,9 +50,8 @@ a:hover {
 	width: 50%;
 }
 
-/* ------------------------- */
-/* Estilos generales de inputs y botones */
-/* ------------------------- */
+/* inputs y botones */
+
 .app label {
 	line-height: 40px;
 }
@@ -88,7 +63,7 @@ a:hover {
 
 .app .btn {
 	width: 100%;
-	background: #684BFF;
+	background: #414c4c;
 	color: #fff;
 	display: inline-block;
 	height: 40px;
@@ -102,16 +77,15 @@ a:hover {
 }
 
 .app .btn:hover {
-	background: #B4A5FF;
+	background: #6d6d6e;
 }
 
 .app .btn.false{
-	background: #33257E;
+	background: #414c4c;
 }
 
-/* ------------------------- */
 /* Fila: Numero de Caracteres */
-/* ------------------------- */
+
 .app .numero-caracteres .botones div {
 	width: 100%;
 }
@@ -123,7 +97,7 @@ a:hover {
 	height: 40px;
 	width: 100%;
 	cursor: default;
-	background: #33257E;
+	background: #1d1d1f;
 	color: #fff;
 }
 .app .numero-caracteres .botones div:nth-child(3) button{
@@ -163,9 +137,8 @@ a:hover {
 }
 
 
-/* ------------------------- */
 /* Fila: Generar Contraseña */
-/* ------------------------- */
+
 .app .fila.generar {
 	margin-bottom: 10px;
 }
@@ -198,7 +171,7 @@ a:hover {
 .app .fila.generar .btn.btn-generar:after {
 	content: "";
 	display: inline-block;
-	background: #684BFF;
+	background: #414c4c;
 	width: 14px;
 	height: 14px;
 	position: absolute;
@@ -210,7 +183,7 @@ a:hover {
 }
 
 .app .fila.generar .col:nth-child(1):hover .btn-generar:after {
-	background: #B4A5FF;
+	background: #6d6d6e;
 }
 
 .app .fila.generar .input-password {
@@ -230,16 +203,15 @@ a:hover {
 }
 
 .app .fila.generar input::selection {
-	background: #212139;
+	background: #282424;
 }
 
 .app .fila.generar input::-moz-selection {
-	background: #212139;
+	background: #282424;
 }
 
-/* ------------------------- */
-/* Fila: Alerta */
-/* ------------------------- */
+/* Fila: Alerta */s
+
 .app .fila.alerta {
 	justify-content: flex-end;
 }
