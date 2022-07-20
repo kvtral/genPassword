@@ -20,4 +20,8 @@ La coma se excluyó intencionalmente*
 
 El textarea se ajusta a la cantidad solicitada
 
+<<<<<<< HEAD
 Se copia al portapapeles al hacer click sobre textarea
+=======
+Se copia al portapapeles al hacer click sobre textarea
+>>>>>>> fdcfae08d66aca73ac9256bec92f00f640b53f3c
