@@ -26,28 +26,25 @@
   // Objeto con cadenas de texto  con los caracteres de cada "atributo" para la contraseña
 
   var caracteres = {
-    numeros: "0 1 2 3 4 5 6 7 8 9",
+    numeros: "1 2 3 4 5 6 7 8 9",
     simbolos: "",
-    mayusculas: "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
-    minusculas: "a b c d e f g h i j k l m n o p q r s t u v w x y z",
+    mayusculas: "A B C D E F G H I J K L M N P Q R S T U V W X Y Z",
+    minusculas: "a b c d e f g h j k m n o p q r s t u v w x y z",
   };
 
   function agregaSimbolos() {
 
     caracteres.simbolos = "";
+    var simbolos_temp = document.getElementById("input-simbolos").value;
 
-  var simbolos_temp = document.getElementById("input-simbolos").value;
+    if (validacion.simbolos == true) {
 
-  if (validacion.simbolos == true) {
-
-    for (var i = 0; i < simbolos_temp.length; i++){
-        console.log(simbolos_temp.charAt(i));
+      for (var i = 0; i < simbolos_temp.length; i++){
         caracteres.simbolos += simbolos_temp.charAt(i);
         caracteres.simbolos += " ";
+      }
+      caracteres.simbolos = caracteres.simbolos.trim();
     }
-    caracteres.simbolos = caracteres.simbolos.trim();
-    
-  }
 }
 
 
@@ -208,17 +205,22 @@
     // Convertimos la cadena de texto de caracteres finales a un arreglo.
     caracteresFinales = caracteresFinales.split(" ");
 
-    // Ciclo que genera la contraseña letra por letra al azar.
+    // string para forzar primer caracter como letra
+    letrasTemp = caracteres.mayusculas.replace(/ /g,"");
+    letrasTemp += caracteres.minusculas.replace(/ /g,"");
+
     for (var i = 0; i < configuracion.caracteres; i++) {
       // A la variable password le vamos sumando una letra al azar por cada iteracion.
       // Primero tomamos un numero al azar que va del 0 al numero de caracteresFinales.
       // Y despues usamos ese numero para acceder a una posicion del arreglo al azar de caracteresFinales.
       password += caracteresFinales[Math.floor(Math.random() * caracteresFinales.length)];
+      // validamos que el primer caracter sea una letra y lo forzamos en caso de no ser asi
+      while (!letrasTemp.includes(password.charAt(0)) && i == 0){
+        console.log(password.charAt(0));
+        password = caracteresFinales[Math.floor(Math.random() * caracteresFinales.length)];
+      }
 
     }
-
-    // password en el input de contraseña.
-    //app.elements.namedItem('input-password').value = password;
     return password;
   }
 
