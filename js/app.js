@@ -205,22 +205,38 @@
     // Convertimos la cadena de texto de caracteres finales a un arreglo.
     caracteresFinales = caracteresFinales.split(" ");
 
-    // string para forzar primer caracter como letra
-    letrasTemp = caracteres.mayusculas.replace(/ /g,"");
-    letrasTemp += caracteres.minusculas.replace(/ /g,"");
+    // Se utiliza una variable para contener solo las letras para primer caracter
+    var letrasTemp = caracteres.minusculas; 
+    
+    if (validacion.mayusculas == true) {letrasTemp += " " + caracteres.mayusculas;}
+    
+    letrasTemp = letrasTemp.split(" "); // Convierte el string en un array de las letras
 
     for (var i = 0; i < configuracion.caracteres; i++) {
-      // A la variable password le vamos sumando una letra al azar por cada iteracion.
-      // Primero tomamos un numero al azar que va del 0 al numero de caracteresFinales.
-      // Y despues usamos ese numero para acceder a una posicion del arreglo al azar de caracteresFinales.
-      password += caracteresFinales[Math.floor(Math.random() * caracteresFinales.length)];
-      // validamos que el primer caracter sea una letra y lo forzamos en caso de no ser asi
-      while (!letrasTemp.includes(password.charAt(0)) && i == 0){
-        console.log(password.charAt(0));
-        password = caracteresFinales[Math.floor(Math.random() * caracteresFinales.length)];
+
+      // Fuerza a que en el primer indice del password elija una letra minuscula o mayuscula
+      if (i == 0) {
+        password = letrasTemp[Math.floor(Math.random() * letrasTemp.length)];
+      } else {
+        // A la variable password le vamos sumando un caracter al azar por cada iteracion.
+        password += caracteresFinales[Math.floor(Math.random() * caracteresFinales.length)];
+      }
+
+      while (password.charAt(i) == password.charAt(i-1)){
+
+        var nva = caracteresFinales[Math.floor(Math.random() * caracteresFinales.length)];
+        password = password.substring(0,i) + nva + password.substring(i +1);
+
       }
 
     }
+
+/*     for (let i = 0; i < password.length; i++){
+      if(caracteres.mayusculas.match(password.charAt(i))){
+          console.log(password.charAt(i));
+          console.log("validado");
+      }
+    }  */
     return password;
   }
 
