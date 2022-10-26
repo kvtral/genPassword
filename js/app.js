@@ -231,15 +231,14 @@
 
     }
 
-/*     for (let i = 0; i < password.length; i++){
-      if(caracteres.mayusculas.match(password.charAt(i))){
-          console.log(password.charAt(i));
-          console.log("validado");
+    var regExPass = new RegExp('^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!-\/:-@[-`{-~])[!-~]{10,}$');
+    //validate password with regExPass else generarPassword()
+    if (password.match(regExPass)) {
+      return password;
+      } else {
+        return generarPassword();
       }
-    }  */
-    return password;
-  }
-
+    }
   // Funcion copia el texto al portapapeles.
   function copiarPassword() {
     // Selecciona el texto de un input
@@ -254,5 +253,5 @@
   }
 
   // Generamos una password con la configuracion por defecto al cargar la pagina
-  generarPassword();
+  //generarPassword();
 })();
