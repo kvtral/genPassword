@@ -230,14 +230,9 @@
       }
 
     }
-
-    var regExPass = new RegExp('^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!-\/:-@[-`{-~])[!-~]{10,}$');
-    //validate password with regExPass else generarPassword()
-    if (password.match(regExPass)) {
+//TODO: Validar que contenga al menos 1 de cada item seleccionado
       return password;
-      } else {
-        return generarPassword();
-      }
+
     }
   // Funcion copia el texto al portapapeles.
   function copiarPassword() {
